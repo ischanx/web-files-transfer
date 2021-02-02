@@ -26,43 +26,43 @@
 </template>
 
 <script>
-import { getFiles, downloadFile,createCode } from "../utils/request"
+import { getFiles, downloadFile, createCode } from "../utils/request"
 export default {
-  data(){
-    return{
-      code:"",
-      password:"",
-      fileList:[],
-      finishTime:"",
-      keepTime:"",
+  data () {
+    return {
+      code: "",
+      password: "",
+      fileList: [],
+      finishTime: "",
+      keepTime: "",
     }
   },
-  mounted(){
-    if(this.$route.query.code){
-      this.code = this.$route.query.code;
+  mounted () {
+    if (this.$route.query.code) {
+      this.code = this.$route.query.code
     }
   },
-  methods:{
-    async createCode(){
-      const now = Date.now();
-      const password = this.password;
-      const deadline = now + this.finishTime * 1000;
-      const keepTime = deadline + this.keepTime * 1000;
-      const res = await createCode({password,deadline,keepTime});
-      if(res.type){
-        alert("获取收集码成功");
-        this.code = res.code;
-        this.password = "";
+  methods: {
+    async createCode () {
+      const now = Date.now()
+      const { password } = this
+      const deadline = now + this.finishTime * 1000
+      const keepTime = deadline + this.keepTime * 1000
+      const res = await createCode({ password, deadline, keepTime })
+      if (res.type) {
+        alert("获取收集码成功")
+        this.code = res.code
+        this.password = ""
       }
     },
-    async getCollection(){
-      const res = await getFiles({code:this.code,password:this.password});
-      this.fileList = res;
+    async getCollection () {
+      const res = await getFiles({ code: this.code, password: this.password })
+      this.fileList = res
     },
-    async downloadFile(id){
+    async downloadFile (id) {
       downloadFile(id)
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -25,41 +25,41 @@
 import { uploadFiles } from "../utils/request.js"
 
 export default {
-  name: 'Send',
-  data(){
+  name: "Send",
+  data () {
     return {
-      code:"",
-      fileList: []
+      code: "",
+      fileList: [],
     }
   },
-  mounted(){
-    if(this.$route.query.code){
-      this.code = this.$route.query.code;
+  mounted () {
+    if (this.$route.query.code) {
+      this.code = this.$route.query.code
     }
-  }, 
+  },
   methods: {
-    async upload(){
-      if(this.code === "" || this.fileList.length === 0) return;
+    async upload () {
+      if (this.code === "" || this.fileList.length === 0) return
       console.log(this.fileList)
-      const res = await uploadFiles(this.code,this.fileList);
-      this.fileList = [];
-      if(res.type){
+      const res = await uploadFiles(this.code, this.fileList)
+      this.fileList = []
+      if (res.type) {
         alert("上传成功")
       }
     },
-    handleRemove(file, fileList) {
-      console.log(file, fileList);
+    handleRemove (file, fileList) {
+      console.log(file, fileList)
     },
-    handleChange(file,fileList) {
-      this.fileList = fileList;
-      console.log(file,fileList);
+    handleChange (file, fileList) {
+      this.fileList = fileList
+      console.log(file, fileList)
     },
-    handleExceed(files, fileList) {
-      this.$message.warning(`当前限制选择 1 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
+    handleExceed (files, fileList) {
+      this.$message.warning(`当前限制选择 1 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`)
     },
-    beforeRemove(file) {
-      return this.$confirm(`确定移除 ${ file.name }？`);
-    }
+    beforeRemove (file) {
+      return this.$confirm(`确定移除 ${file.name}？`)
+    },
   },
 }
 </script>
