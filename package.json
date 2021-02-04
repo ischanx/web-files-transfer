@@ -10,6 +10,7 @@
   "dependencies": {
     "@cloudbase/js-sdk": "^1.4.0",
     "core-js": "^3.6.5",
+    "cos-js-sdk-v5": "^1.1.10",
     "element-ui": "^2.15.0",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0"

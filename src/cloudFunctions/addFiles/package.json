@@ -1,0 +1,12 @@
+{
+  "name": "addFiles",
+  "version": "1.0.0",
+  "description": "基于分享/收集码添加关联文件",
+  "main": "index.js",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@cloudbase/node-sdk": "latest"
+  }
+}

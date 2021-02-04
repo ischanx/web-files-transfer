@@ -28,6 +28,7 @@ module.exports = {
     "no-empty-function": "off", // 允许使用空函数
     "max-len": ["warn", { code: 200 }], // 一行200
     quotes: ["error", "double"], // 使用双引号
+    semi: ["error", "always"],
     "operator-linebreak": ["error", "before"],
     "prefer-destructuring": ["warn"], // 优先采用解构
     "no-param-reassign": ["off"], // 禁止对参数修改
@@ -38,4 +39,4 @@ module.exports = {
     "comma-dangle": ["error", "always-multiline"], // 多行必须逗号结尾
     "vue/experimental-script-setup-vars": ["off"],
   },
-}
+};
